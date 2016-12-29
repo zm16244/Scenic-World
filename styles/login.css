@@ -1,0 +1,146 @@
+.input_form{
+  width: 400px;
+  padding: 25px;
+  background: #edeff1;
+  margin: auto;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+.input_form h1{
+  color: #000;
+  text-align: left;
+  font-family: Times New Roman;
+  font-weight: normal;
+  width: 314px;
+  margin: 0px auto;
+}
+
+.input_form p{
+  color: black;
+  margin-left: 50px;
+  font-size: 13px;
+  font-family: Times New Roman;
+  width: 314px;
+  margin: 15px auto;
+}
+
+.input_form.error p{
+  color: red;
+}
+
+
+
+.input_form select,
+.input_form input[type="file"],
+.input_form input[type="text"],
+.input_form input[type="password"]{
+  display: block;
+  width: 309px;
+  height: 35px;
+  margin: 15px auto;
+  background: #fff;
+  border: 0px;
+  padding: 5px;
+  font-size: 16px;
+   border: 2px solid #fff;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.input_form textarea
+{
+  display: block;
+  width: 309px;
+  height: 100px;
+  margin: 15px auto;
+  background: #fff;
+  border: 0px;
+  padding: 5px;
+  font-size: 16px;
+  font-family: Times New Roman;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.input_form input[type="text"]:focus{
+  border: 2px solid #1abc9d
+}
+
+
+
+.input_form input[type="submit"]{
+  display: block;
+  background: rgba(0,0,255,0.5);
+  width: 314px;
+  padding: 12px;
+  cursor: pointer;
+  color: #fff;
+  border: 0px;
+  margin: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.input_form input[type="submit"]:hover{
+  background: rgba(0,0,255,0.5)
+}
+
+.input_form ul {
+	padding: 0;
+    list-style-type: none;
+	margin: 0;
+}
+
+.input_form ul li {
+display: inline; 
+}
+
+.input_form ul li a{
+  width: 145px;
+  text-align: left;
+  font-family: Times New Roman;
+  color: gray;
+  margin: 15px 97px 0px 45px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 13px;
+}
+
+.input_form ul li a:hover{
+  color: rgba(0,0,255,0.5);
+}
+
+#register{
+	width: 47px;
+	margin: 0px;
+}
+
+.rating{
+	margin: 15px 40px;
+}
+
+::-webkit-input-placeholder {
+   color: gray;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: gray;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: gray;  
+}
+
+:-ms-input-placeholder {  
+   color: gray;  
+}

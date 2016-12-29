@@ -1,0 +1,185 @@
+body, html {
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #333;
+
+    text-align: center;
+    background-image: url("/styles/login_bg_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+}
+
+.login-area {
+    font-size: 20px;
+    color: #EEEEEE;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+.control-area{
+    font-size: 20px;
+    color: #EEEEEE;
+    position: absolute;
+    top: 10px;
+    right: 200px;
+}
+
+.login-link {
+    color: #EEEEEE;
+    text-decoration: none;
+}
+
+.login-link:visited {
+    color: #E91E63;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+a {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #EC407A;
+}
+
+.content {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.error {
+    color: red;
+}
+
+.wrapper {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+label {
+  display: block;
+  font-size: 20px;
+}
+
+label + label {
+    margin-top: 20px;
+}
+
+textarea {
+  width: 500px;
+  height: 400px;
+  font-size: 17px;
+}
+
+input[type=submit] {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+input[type=text], input[type=password] {
+    color: #616161;
+}
+
+.main-title {
+    display: block;
+    color: #EEEEEE;;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    text-decoration: none;
+}
+
+.post + .post {
+    margin-top: 15px;
+}
+
+.post-heading {
+    position: relative;
+    border-bottom: 3px solid #666;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.post-date {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    color: #999;
+
+}
+
+.post-content {
+    margin-top: 5px;
+}
+
+table {
+    border: none;
+    width: 775px;
+    font-size: 20px;
+    border-collapse: collapse;
+
+    margin: auto;
+}
+
+td {
+    height: 35px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+tr:nth-child(odd){background-color: #f2f2f2}
+
+.historic-time {
+    width: 170px;
+    color: #757575;
+}
+
+.content-tab {
+    padding: 7px;
+}
+
+.control-tab {
+    width: 65px;
+    text-align: center;
+}
+
+.footer {
+    font-family: 'Source Sans Pro', sans-serif;
+    position: fixed;
+    bottom: 0;
+    margin-left: 30%;
+}
+
+.credits {
+    font-size: 17px;
+}
+
+.photocreds {
+    font-size: 10px;
+}
