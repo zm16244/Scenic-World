@@ -204,10 +204,10 @@ class MainHandler(BaseHandler):
 class SignupHandler(BaseHandler):
 	def get(self):
 		active = "register"
-		writeNav3(self, active)
+		writeNav(self, active)
 		self.response.write(SIGNUP_TEMPLATE)
 		pathway = '<a href="/browse">MAIN</a> &gt Register'
-		self.response.write(FOOTER_TEMPLATE2.format(pathway))
+		self.response.write(FOOTER_TEMPLATE.format(pathway))
 		
 	def post(self):
 		user_name = self.request.get('username')
@@ -239,9 +239,9 @@ class SignupHandler(BaseHandler):
 class ConfirmEmailSent(BaseHandler):
 	def get(self):
 		active = "emailsent"
-		writeNav3(self, active)
+		writeNav(self, active)
 		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>A Confirmation email has been sent to your email address.</p><p>Please follow the attached link to validate your account.</p></div>')
-		self.response.write(FOOTER_TEMPLATE2.format(""))
+		self.response.write(FOOTER_TEMPLATE.format(""))
 	
 class ForgotPasswordHandler(BaseHandler):
 	def get(self):
@@ -271,21 +271,21 @@ class ForgotPasswordHandler(BaseHandler):
 	def _serve_page(self, not_found=False):
 		username = self.request.get('username')
 		active = "forgot"
-		writeNav3(self, active)
+		writeNav(self, active)
 		self.response.write('<div class="input_form"><h1>Reset password</h1><p>Forgot your password? Click the link below to receive a link to reset your password.</p>')
 		if not_found:
 			self.response.write('<p style="color:red"><strong>Not found!</strong> We could not find any user with the given username.</p>')
 		self.response.write(FORGOT_TEMPLATE2 % username)
 		self.response.write('</div>')
 		pathway = '<a href="/browse">MAIN</a> &gt <a href="/">Login</a> &gt Forgot Password'
-		self.response.write(FOOTER_TEMPLATE2.format(pathway))
+		self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 class ForgotEmailSent(BaseHandler):
 	def get(self):
 		active = "emailsent"
-		writeNav3(self, active)
+		writeNav(self, active)
 		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>A Verification email has been sent to your email address.</p><p>Please follow the attached link to reset your password.</p></div>')
-		self.response.write(FOOTER_TEMPLATE2.format(""))
+		self.response.write(FOOTER_TEMPLATE.format(""))
 
 class VerificationHandler(BaseHandler):
   def get(self, *args, **kwargs):
@@ -317,16 +317,16 @@ class VerificationHandler(BaseHandler):
         user.put()
       
       active = "emailverified"
-      writeNav3(self, active)
+      writeNav(self, active)
       self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>Your email address has been verified.</p></div>')
-      self.response.write(FOOTER_TEMPLATE2.format(""))
+      self.response.write(FOOTER_TEMPLATE.format(""))
       return
     elif verification_type == 'p':
       # supply user to the page
       active = "verify"
-      writeNav3(self, active)
+      writeNav(self, active)
       self.response.write(RESET_PASSWORD_TEMPLATE %(signup_token))
-      self.response.write(FOOTER_TEMPLATE2.format(""))
+      self.response.write(FOOTER_TEMPLATE.format(""))
     else:
       logging.info('verification type not supported')
       self.abort(404)
@@ -353,9 +353,9 @@ class SetPasswordHandler(BaseHandler):
 class PasswordUpdated(BaseHandler):
 	def get(self):
 		active = "passwordupdated"
-		writeNav3(self, active)
+		writeNav(self, active)
 		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>Your password has been successfully updated!</p></div>')
-		self.response.write(FOOTER_TEMPLATE2.format(""))
+		self.response.write(FOOTER_TEMPLATE.format(""))
 
 class LoginHandler(BaseHandler):
   def get(self):
@@ -375,7 +375,7 @@ class LoginHandler(BaseHandler):
   def _serve_page(self, failed=False):
     username = self.request.get('username')
     active = "login"
-    writeNav3(self, active)
+    writeNav(self, active)
     self.response.write('<div class="input_form"><h1>Login</h1>')
 
     if failed:
@@ -384,7 +384,7 @@ class LoginHandler(BaseHandler):
     self.response.write(LOGIN_TEMPLATE % (username))
 	
     pathway = '<a href="/browse">MAIN</a> &gt Login'
-    self.response.write(FOOTER_TEMPLATE2.format(pathway))
+    self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 class LogoutHandler(BaseHandler):
   def get(self):
