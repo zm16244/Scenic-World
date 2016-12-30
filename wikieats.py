@@ -814,7 +814,28 @@ def writeNav(self, active):
 		self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')
 		
 def writeNav3(self, active):
-		self.response.write(HEADER_TEMPLATE3)		
+		self.response.write(HEADER_TEMPLATE3)
+        self.response.write(NAV_1)
+		cities = City.query().order(City.city)
+		for c in cities:
+			#self.response.write('<a href="/browse/%s">%s</a></p>' % (c.key.id(),c.city))
+			self.response.write('<option value="%s">%s</option>' % (c.key.id(), c.city))
+		self.response.write(NAV_2)
+		
+		u = self.auth.get_user_by_session()
+		if u:
+			greeting = ('<li class="last"><a href="/logout"><span>Logout</span></a></li>')
+		elif active == "login":
+			greeting = ('<li class="active"><a href="/login"><span>Login</span></a></li><li class="last"><a href="/signup"><span>Register</span></a></li>')
+		elif active == "register":
+			greeting = ('<li><a href="/login"><span>Login</span></a></li><li class="active last"><a href="/signup"><span>Register</span></a></li>')
+		else:
+			greeting = ('<li><a href="/login"><span>Login</span></a></li><li class="last"><a href="/signup"><span>Register</span></a></li>')
+		self.response.write(greeting)
+		
+		self.response.write('</ul></div>')
+		
+		self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')		
 def writeNav2(self, active):
 		self.response.write(HEADER_TEMPLATE2)
 		#self.response.write(NAV_1)
