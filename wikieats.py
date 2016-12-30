@@ -418,7 +418,12 @@ HEADER_TEMPLATE = """
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	</head>
 	<body>
-
+        <div class="pathway">
+			{0}
+		</div>
+	<style type="text/css">
+        body {background-image:url(../styles/login_background.jpg);background-size:cover;}
+    </style>	
 		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:0.7; background-image:url(../style/headpic.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
 			<div style="padding:5px;">
 				<a href="/"><img src="/images/wikieats_logo.png" width="99px" height="99px"></a>
@@ -519,11 +524,7 @@ HEADER_TEMPLATE2 = """
 
 FOOTER_TEMPLATE = """
 			</div>
-			<div style="position:fixed; left:0px; bottom:0px; height:60px; width:100%; background:#ffffff; z-index:100; ">
-				<div class="pathway">
-					{0}
-				</div>
-				
+			<div style="position:fixed; left:0px; bottom:0px; height:0px; width:0%; background:#ffffff; z-index:-9999; ">				
 			</div>
 		</body>
 	</html>
