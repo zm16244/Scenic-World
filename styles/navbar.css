@@ -153,7 +153,7 @@
 
 #cssmenu ul {
 position: relative;
-top: 6px;
+top: 0px;
 width: 223px;
 float:right;
 text-align: right;
@@ -177,7 +177,7 @@ text-align: right;
 #cssmenu ul li {
   display: inline-block;
   padding: 0;
-  margin: 0;
+  margin: -3;
 }
 #cssmenu.align-right ul li {
   float: right;
