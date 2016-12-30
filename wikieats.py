@@ -466,7 +466,7 @@ HEADER_TEMPLATE2 = """
                 A APPLICATION from <strong>ANQI WANG ZHENGYANG MAO YUANZHOU LI</strong> • v2016.12.31 • Made with Code, Material Design, and Passion.
             </div>
             <div class="photocreds">
-                Background Image: Gavin Hardcastle on flickr
+                Background Image: 
             </div>
         </div>
         
@@ -477,7 +477,7 @@ HEADER_TEMPLATE2 = """
 
 FOOTER_TEMPLATE = """
 			</div>
-			<div style="position:fixed; left:0px; bottom:0px; height:60px; width:100%; background:#15967E; z-index:100; ">
+			<div style="position:fixed; left:0px; bottom:0px; height:0px; width:0%; background:#15967E; z-index:-9999; ">
 				<div class="pathway">
 					{0}
 				</div>
