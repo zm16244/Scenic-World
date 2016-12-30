@@ -1282,7 +1282,7 @@ class AddNewScenic(BaseHandler, ):
   def post(self, city, rest):
     pattern = "(?<!.)\d+([.]\d{2})?(?!.)"
     check = re.compile(pattern)
-    if not check.search(self.request.get('Scenic_price')):
+    if not check.search(self.request.get('scenic_price')):
       self._serve_page(city, rest, invalid_price=True)
       return
 
