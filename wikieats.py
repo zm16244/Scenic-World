@@ -419,7 +419,6 @@ HEADER_TEMPLATE = """
 	</head>
 	<body>
         <div class="pathway">
-		   {0}
 		</div>
 	<style type="text/css">
         body 
