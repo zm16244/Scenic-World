@@ -26,9 +26,9 @@
 
 #cssmenu form select{
 	height: 30px;
-	width: 250px;
+	width: 200px;
 	font-size: 14px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Bradley Hand ITC', sans-serif;
 }
 
 .dropdown {
@@ -132,7 +132,7 @@
 	text-align:center;
 	display: inline-block;
 	vertical-align: middle;
-	width: 200px;
+	width: 180px;
 	height:30px;
 	cursor: pointer;
 	color: #fff;
