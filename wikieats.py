@@ -204,10 +204,10 @@ class MainHandler(BaseHandler):
 class SignupHandler(BaseHandler):
 	def get(self):
 		active = "register"
-		writeNav(self, active)
+		writeNav3(self, active)
 		self.response.write(SIGNUP_TEMPLATE)
 		pathway = '<a href="/browse">MAIN</a> &gt Register'
-		self.response.write(FOOTER_TEMPLATE.format(pathway))
+		self.response.write(FOOTER_TEMPLATE2.format(pathway))
 		
 	def post(self):
 		user_name = self.request.get('username')
@@ -239,9 +239,9 @@ class SignupHandler(BaseHandler):
 class ConfirmEmailSent(BaseHandler):
 	def get(self):
 		active = "emailsent"
-		writeNav(self, active)
+		writeNav3(self, active)
 		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>A Confirmation email has been sent to your email address.</p><p>Please follow the attached link to validate your account.</p></div>')
-		self.response.write(FOOTER_TEMPLATE.format(""))
+		self.response.write(FOOTER_TEMPLATE2.format(""))
 	
 class ForgotPasswordHandler(BaseHandler):
 	def get(self):
@@ -271,21 +271,21 @@ class ForgotPasswordHandler(BaseHandler):
 	def _serve_page(self, not_found=False):
 		username = self.request.get('username')
 		active = "forgot"
-		writeNav(self, active)
+		writeNav3(self, active)
 		self.response.write('<div class="input_form"><h1>Reset password</h1><p>Forgot your password? Click the link below to receive a link to reset your password.</p>')
 		if not_found:
 			self.response.write('<p style="color:red"><strong>Not found!</strong> We could not find any user with the given username.</p>')
-		self.response.write(FORGOT_TEMPLATE % username)
+		self.response.write(FORGOT_TEMPLATE2 % username)
 		self.response.write('</div>')
 		pathway = '<a href="/browse">MAIN</a> &gt <a href="/">Login</a> &gt Forgot Password'
-		self.response.write(FOOTER_TEMPLATE.format(pathway))
+		self.response.write(FOOTER_TEMPLATE2.format(pathway))
 
 class ForgotEmailSent(BaseHandler):
 	def get(self):
 		active = "emailsent"
-		writeNav(self, active)
+		writeNav3(self, active)
 		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>A Verification email has been sent to your email address.</p><p>Please follow the attached link to reset your password.</p></div>')
-		self.response.write(FOOTER_TEMPLATE.format(""))
+		self.response.write(FOOTER_TEMPLATE2.format(""))
 
 class VerificationHandler(BaseHandler):
   def get(self, *args, **kwargs):
@@ -317,16 +317,16 @@ class VerificationHandler(BaseHandler):
         user.put()
       
       active = "emailverified"
-      writeNav(self, active)
+      writeNav3(self, active)
       self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>Your email address has been verified.</p></div>')
-      self.response.write(FOOTER_TEMPLATE.format(""))
+      self.response.write(FOOTER_TEMPLATE2.format(""))
       return
     elif verification_type == 'p':
       # supply user to the page
       active = "verify"
-      writeNav(self, active)
+      writeNav3(self, active)
       self.response.write(RESET_PASSWORD_TEMPLATE %(signup_token))
-      self.response.write(FOOTER_TEMPLATE.format(""))
+      self.response.write(FOOTER_TEMPLATE2.format(""))
     else:
       logging.info('verification type not supported')
       self.abort(404)
@@ -353,9 +353,9 @@ class SetPasswordHandler(BaseHandler):
 class PasswordUpdated(BaseHandler):
 	def get(self):
 		active = "passwordupdated"
-		writeNav(self, active)
+		writeNav3(self, active)
 		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>Your password has been successfully updated!</p></div>')
-		self.response.write(FOOTER_TEMPLATE.format(""))
+		self.response.write(FOOTER_TEMPLATE2.format(""))
 
 class LoginHandler(BaseHandler):
   def get(self):
@@ -375,7 +375,7 @@ class LoginHandler(BaseHandler):
   def _serve_page(self, failed=False):
     username = self.request.get('username')
     active = "login"
-    writeNav(self, active)
+    writeNav3(self, active)
     self.response.write('<div class="input_form"><h1>Login</h1>')
 
     if failed:
@@ -384,7 +384,7 @@ class LoginHandler(BaseHandler):
     self.response.write(LOGIN_TEMPLATE % (username))
 	
     pathway = '<a href="/browse">MAIN</a> &gt Login'
-    self.response.write(FOOTER_TEMPLATE.format(pathway))
+    self.response.write(FOOTER_TEMPLATE2.format(pathway))
 
 class LogoutHandler(BaseHandler):
   def get(self):
@@ -424,6 +424,48 @@ HEADER_TEMPLATE = """
 				<a href="/"><img src="/images/wikieats_logo.png" width="99px" height="99px"></a>
 			</div>	
 		</div>
+"""
+HEADER_TEMPLATE3 = """
+<html>
+	<head>
+	    <link type="text/css" rel="stylesheet" href="/styles/main.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	</head>
+	<body>
+        <div class="control-area">
+ 
+        </div>
+        
+        <div class="login-area">
+            
+                <a class="login-link" href="/login">login</a>
+                |
+                <a class="login-link" href="/signup">sign up</a>
+            
+             
+        </div>
+		
+		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:0.7; background-image:url(../style/headpic.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
+			<div style="padding:5px;">
+				<a href="/"><img src="/images/wikieats_logo.png" width="99px" height="99px"></a>
+			</div>	
+		</div>
+		</div>
+		<div class="footer">
+            <div class="credits">
+                A APPLICATION from <strong>ANQI WANG ZHENGYANG MAO YUANZHOU LI</strong> • v2016.12.31 • Made with Code, Material Design, and Passion.
+            </div>
+            <div class="photocreds">
+                Background Image: Swansea
+            </div>
+        </div>
+        
+    </body>
+
+</html>
 """
 HEADER_TEMPLATE2 = """
 <html>
@@ -466,7 +508,7 @@ HEADER_TEMPLATE2 = """
                 A APPLICATION from <strong>ANQI WANG ZHENGYANG MAO YUANZHOU LI</strong> • v2016.12.31 • Made with Code, Material Design, and Passion.
             </div>
             <div class="photocreds">
-                Background Image: 
+                Background Image: Swansea
             </div>
         </div>
         
@@ -779,6 +821,8 @@ def writeNav(self, active):
 		
 		self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')
 		
+def writeNav3(self, active):
+		self.response.write(HEADER_TEMPLATE3)		
 def writeNav2(self, active):
 		self.response.write(HEADER_TEMPLATE2)
 		#self.response.write(NAV_1)
