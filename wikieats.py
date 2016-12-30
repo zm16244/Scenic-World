@@ -437,7 +437,7 @@ HEADER_TEMPLATE2 = """
     </head>
     
     <body>
-        <a href="/" class="main-title">
+        <a href="/browse" class="main-title">
             SecnicWorld
         </a>
         
@@ -1003,7 +1003,7 @@ class advancedSearchResult(BaseHandler):
     else:
       self.response.write("NO RESULTS")
     self.response.write('<a href="/advancedSearch?city=%s&scenic=%s&price=%s&postcode=%s&distance=%s"><input class="addtolist" value="Try again"></a></p>' % (city, scenic, price, postcode, distance))
-    pathway = '<a href="/">MAIN</a> &gt <a href="/advancedSearch">Advanced Search</a> &gt Results'
+    pathway = '<a href="/browse">MAIN</a> &gt <a href="/advancedSearch">Advanced Search</a> &gt Results'
     self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 
