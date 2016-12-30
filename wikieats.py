@@ -240,7 +240,7 @@ class ConfirmEmailSent(BaseHandler):
 	def get(self):
 		active = "emailsent"
 		writeNav(self, active)
-		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>A Confirmation email has been sent to your email address.</p><p>Please follow the attached link to validate your account.</p></div>')
+		self.response.write('<div style="margin-top:50px; color:#ffffff; font-family: Arial; font-size: 30px; text-align:center;"><p>A Confirmation email has been sent to your email address.</p><p>Please follow the attached link to validate your account.</p></div>')
 		self.response.write(FOOTER_TEMPLATE.format(""))
 	
 class ForgotPasswordHandler(BaseHandler):
@@ -284,7 +284,7 @@ class ForgotEmailSent(BaseHandler):
 	def get(self):
 		active = "emailsent"
 		writeNav(self, active)
-		self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>A Verification email has been sent to your email address.</p><p>Please follow the attached link to reset your password.</p></div>')
+		self.response.write('<div style="margin-top:50px; color:#ffffff;font-family: Arial; font-size: 30px; text-align:center;"><p>A Verification email has been sent to your email address.</p><p>Please follow the attached link to reset your password.</p></div>')
 		self.response.write(FOOTER_TEMPLATE.format(""))
 
 class VerificationHandler(BaseHandler):

@@ -80,7 +80,7 @@
 .pathway{
 	margin-left: 20px;
 	position:fixed;
-	font-family:Bradley Hand ITC;
+	font-family:Algerian;
 	font-size:30px;
 	color:white;
 	z-index:120;
@@ -90,12 +90,12 @@
 
 .pathway  a{
 	text-decoration:none;
-	color:white;
+	color:black;
 }
 
 .pathway  a:active{
 	text-decoration:none;
-	color:white;
+	color:black;
 }
 
 .pathway  a:hover{
@@ -190,7 +190,7 @@ text-align: right;
   text-decoration: none;
   display: block;
   padding: 15px 25px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Times New Roman', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 14px;
