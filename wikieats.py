@@ -1293,7 +1293,7 @@ class AddNewScenic(BaseHandler, ):
     else:
       r = Scenic(parent=rkey)
       r.name = self.request.get('Scenic_name')
-      r.price = float(self.request.get('Scenic_price'))
+      r.price = float(self.request.get('scenic_price'))
       r.averageRating = 0.0
       r.numberOfPhotos = 0
       r.put()
