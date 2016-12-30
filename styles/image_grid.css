@@ -9,12 +9,12 @@ ul.rig li {
 	width: 22.5%; /* this value + 2.5 should = 25% */
 	padding: 10px;
 	margin: 0 0 2.5% 2%;
-	background: #fff;
-	border: 1px solid #ddd;
+	background: rgba(251,140,181,0);
+	border: 1px solid rgba(251,195,140,0.77);
 	font-size: 16px;
 	font-size: 1rem;
 	vertical-align: top;
-	box-shadow: 0 0 5px #ddd;
+	box-shadow: 0 0 5px rgba(251,140,140,0.9);
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -38,7 +38,7 @@ ul.rig li p {
 	margin-left:25px;
 	font-size: .9em;
 	line-height: 1em;
-	color: #999;
+	color: #000000;
 }
 
 .photo{
