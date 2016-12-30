@@ -206,7 +206,7 @@ class SignupHandler(BaseHandler):
 		active = "register"
 		writeNav(self, active)
 		self.response.write(SIGNUP_TEMPLATE)
-		pathway = '<a href="/">HOME</a> &gt Register'
+		pathway = '<a href="/">MAIN</a> &gt Register'
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 		
 	def post(self):
@@ -277,7 +277,7 @@ class ForgotPasswordHandler(BaseHandler):
 			self.response.write('<p style="color:red"><strong>Not found!</strong> We could not find any user with the given username.</p>')
 		self.response.write(FORGOT_TEMPLATE % username)
 		self.response.write('</div>')
-		pathway = '<a href="/">HOME</a> &gt <a href="/">Login</a> &gt Forgot Password'
+		pathway = '<a href="/">MAIN</a> &gt <a href="/">Login</a> &gt Forgot Password'
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 class ForgotEmailSent(BaseHandler):
@@ -383,7 +383,7 @@ class LoginHandler(BaseHandler):
 
     self.response.write(LOGIN_TEMPLATE % (username))
 	
-    pathway = '<a href="/browse">HOME2</a> &gt Login'
+    pathway = '<a href="/browse">MAIN</a> &gt Login'
     self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 class LogoutHandler(BaseHandler):
@@ -855,7 +855,7 @@ class BrowseCities(BaseHandler):
 		self.response.write('</ul>')
 
 		self.response.write('</div>')
-		pathway = "HOME"
+		pathway = "MAIN"
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 
@@ -872,7 +872,7 @@ class advancedSearch(BaseHandler):
 	def get (self):
 		writeNav(self, "browse")
 		writeAdvanced(self)
-		pathway = '<a href="/browse">HOME2</a> &gt Advanced Search'
+		pathway = '<a href="/browse">MAIN</a> &gt Advanced Search'
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 	def post(self):
@@ -1003,7 +1003,7 @@ class advancedSearchResult(BaseHandler):
     else:
       self.response.write("NO RESULTS")
     self.response.write('<a href="/advancedSearch?city=%s&scenic=%s&price=%s&postcode=%s&distance=%s"><input class="addtolist" value="Try again"></a></p>' % (city, scenic, price, postcode, distance))
-    pathway = '<a href="/">HOME</a> &gt <a href="/advancedSearch">Advanced Search</a> &gt Results'
+    pathway = '<a href="/">MAIN</a> &gt <a href="/advancedSearch">Advanced Search</a> &gt Results'
     self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 
@@ -1052,7 +1052,7 @@ class BrowseRestaurants(BaseHandler):
 		if u:
 			self.response.write('<a href="/addnewrestaurant/%s?landscape=%s"><input class="addtolist" value="ADD NEW SCENIC SPOTS"></a></p>' % (city, landscape))
 		
-		pathway = '<a href="/">HOME</a> &gt ' + city_key.get().city
+		pathway = '<a href="/">MAIN</a> &gt ' + city_key.get().city
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 		
 class BrowseScenices(BaseHandler):
@@ -1140,7 +1140,7 @@ class BrowseScenices(BaseHandler):
 		if u:
 			self.response.write('<a  href="/addnewscenic/%s/%s?landscape=%s"><input class="addtolist" value="ADD NEW SCENIC"></a></p>' % (city, rest, landscape))
 		
-		pathway = '<a href="/">HOME</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt %s' % (city, landscape, city_key.get().city, rest_key.get().name)
+		pathway = '<a href="/">MAIN</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt %s' % (city, landscape, city_key.get().city, rest_key.get().name)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 		
 class DisplayScenic(BaseHandler):
@@ -1181,7 +1181,7 @@ class DisplayScenic(BaseHandler):
 			
 		city_link = '<a href="/browse/%s?landscape=%s">%s</a>' % (city, landscape, city_key.get().city)
 		rest_link = '<a href="/browse/%s/%s?landscape=%s">%s</a>' % (city, rest, landscape, rest_key.get().name)
-		pathway = '<a href="/">HOME</a> &gt %s &gt %s &gt %s' % (city_link, rest_link, photo_key.get().name)
+		pathway = '<a href="/">MAIN</a> &gt %s &gt %s &gt %s' % (city_link, rest_link, photo_key.get().name)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 class AddNewRestaurant(BaseHandler):
@@ -1191,7 +1191,7 @@ class AddNewRestaurant(BaseHandler):
 		active = "restaurant"
 		writeNav(self, active)
 		self.response.out.write(ADD_NEW_RESTAURANT_TEMPLATE % (city, landscape))
-		pathway = '<a href="/">HOME</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt Add New Restaurant' % (city, landscape, city_key.get().city)
+		pathway = '<a href="/">MAIN</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt Add New Restaurant' % (city, landscape, city_key.get().city)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 		
 class PostRestaurant2(webapp2.RequestHandler):
@@ -1259,7 +1259,7 @@ class AddNewScenic(BaseHandler, ):
 
     city_link = '<a href="/browse/%s?landscape=%s">%s</a>' % (city, landscape, city_key.get().city)
     rest_link = '<a href="/browse/%s/%s?landscape=%s">%s</a>' % (city, rest, landscape, rest_key.get().name)
-    pathway = '<a href="/">HOME</a> &gt %s &gt %s &gt Add New Scenic' % (city_link, rest_link)
+    pathway = '<a href="/">MAIN</a> &gt %s &gt %s &gt Add New Scenic' % (city_link, rest_link)
     self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 					
@@ -1305,7 +1305,7 @@ class uploadPhotoPage(BaseHandler):
 		city_link = '<a href="/browse/%s?landscape=%s">%s</a>' % (city, landscape, city_key.get().city)
 		rest_link = '<a href="/browse/%s/%s?landscape=%s">%s</a>' % (city, rest, landscape, rest_key.get().name)
 		photo_link = '<a href="/browse/%s/%s/%s?landscape=%s">%s</a>' % (city, rest, scenic, landscape, photo_key.get().name)
-		pathway = '<a href="/">HOME</a> &gt %s &gt %s &gt %s &gt Upload Image' % (city_link, rest_link, photo_link)
+		pathway = '<a href="/">MAIN</a> &gt %s &gt %s &gt %s &gt Upload Image' % (city_link, rest_link, photo_link)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 
