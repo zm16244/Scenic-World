@@ -477,7 +477,7 @@ HEADER_TEMPLATE2 = """
 
 FOOTER_TEMPLATE = """
 			</div>
-			<div style="position:fixed; left:0px; bottom:0px; height:0px; width:0%; background:#15967E; z-index:-9999; ">
+			<div style="position:fixed; left:0px; bottom:0px; height:60px; width:100%; background:#15967E; z-index:100; ">
 				<div class="pathway">
 					{0}
 				</div>
@@ -855,7 +855,7 @@ class BrowseCities(BaseHandler):
 		self.response.write('</ul>')
 
 		self.response.write('</div>')
-		pathway = "HOME2"
+		pathway = "HOME"
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 
