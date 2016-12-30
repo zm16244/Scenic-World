@@ -1136,7 +1136,7 @@ class BrowseScenices(BaseHandler):
 		result = Scenic.query(ancestor = rest_key).order(ordering)
 		check = False
 		active = "browse"
-		writeNav3(self, active)
+		writeNav(self, active)
   
 		self.response.write('<div class="liststatus">Showing senic spots from the ' + rest_key.get().name + ' menu:')
 		self.response.write('<form action="/browse/%s/%s?landscape=%s" method="GET" class="sortorder"><select name="order" onchange="this.form.submit()">'% (city, rest, landscape))
