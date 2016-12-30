@@ -477,7 +477,7 @@ HEADER_TEMPLATE2 = """
 
 FOOTER_TEMPLATE = """
 			</div>
-			<div style="position:fixed; left:0px; bottom:0px; height:60px; width:100%; background:#15967E; z-index:100; ">
+			<div style="position:fixed; left:0px; bottom:0px; height:60px; width:100%; background:#ffffff; opacity:0.0; z-index:100; ">
 				<div class="pathway">
 					{0}
 				</div>
