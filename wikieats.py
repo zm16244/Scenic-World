@@ -811,7 +811,7 @@ def writeNav(self, active):
 		
 		self.response.write('</ul></div>')
 		
-		self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')
+		self.response.write('<div style="position:relative; top:100px; margin-bottom:0px;">')
 		
 def writeNav3(self, active):
 		self.response.write(HEADER_TEMPLATE3)
