@@ -653,10 +653,10 @@ ADD_NEW_RESTAURANT_TEMPLATE = """
 
 ADD_NEW_SCENIC_TEMPLATE = """
 		<div class="input_form">
-			<h1>Add Attractions</h1>
+			<h1>Add Scenic</h1>
 			{3}
 			<form action="/addnewscenic/{0}/{1}?landscape={2}" method="POST">
-				<input type="text" name="scenic_name" placeholder="Name of Attractions" required/>
+				<input type="text" name="scenic_name" placeholder="Name of Scenic" required/>
 				<input type="text" name="scenic_price" placeholder="Price (&pound)"/>
 				<input type="submit" value="Submit" />
 			</form>
@@ -1190,13 +1190,13 @@ class BrowseScenices(BaseHandler):
 				
 			self.response.write('</div></div></a>')
 		if check == False:
-			self.response.write('<p class="noitems">No Attractions in this scenic spots.</p>')
+			self.response.write('<p class="noitems">No Scenic in this scenic spots.</p>')
 		
 		self.response.write('</div>')
 		
 		u = self.auth.get_user_by_session()
 		if u:
-			self.response.write('<a  href="/addnewAttractions/%s/%s?landscape=%s"><input class="addtolist" value="ADD NEW SCENIC"></a></p>' % (city, rest, landscape))
+			self.response.write('<a  href="/addnewScenic/%s/%s?landscape=%s"><input class="addtolist" value="ADD NEW SCENIC"></a></p>' % (city, rest, landscape))
 		
 		pathway = '<a href="/browse">MAIN</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt %s' % (city, landscape, city_key.get().city, rest_key.get().name)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
@@ -1230,7 +1230,7 @@ class DisplayScenic(BaseHandler):
 		self.response.write('</ul>')
 		
 		if check == False:
-			self.response.write('<p class="noitems">No photos of this Attractions.</p>')
+			self.response.write('<p class="noitems">No photos of this Scenic.</p>')
 		
 		
 		u = self.auth.get_user_by_session()
@@ -1282,7 +1282,7 @@ class AddNewScenic(BaseHandler, ):
   def post(self, city, rest):
     pattern = "(?<!.)\d+([.]\d{2})?(?!.)"
     check = re.compile(pattern)
-    if not check.search(self.request.get('Attractions_price')):
+    if not check.search(self.request.get('Scenic_price')):
       self._serve_page(city, rest, invalid_price=True)
       return
 
@@ -1292,8 +1292,8 @@ class AddNewScenic(BaseHandler, ):
       self.redirect('/browse/%s/%s?landscape=%s' % (city, rest, landscape))
     else:
       r = Scenic(parent=rkey)
-      r.name = self.request.get('Attractions_name')
-      r.price = float(self.request.get('Attractions_price'))
+      r.name = self.request.get('Scenic_name')
+      r.price = float(self.request.get('Scenic_price'))
       r.averageRating = 0.0
       r.numberOfPhotos = 0
       r.put()
@@ -1317,7 +1317,7 @@ class AddNewScenic(BaseHandler, ):
 
     city_link = '<a href="/browse/%s?landscape=%s">%s</a>' % (city, landscape, city_key.get().city)
     rest_link = '<a href="/browse/%s/%s?landscape=%s">%s</a>' % (city, rest, landscape, rest_key.get().name)
-    pathway = '<a href="/browse">MAIN</a> &gt %s &gt %s &gt Add New Attractions' % (city_link, rest_link)
+    pathway = '<a href="/browse">MAIN</a> &gt %s &gt %s &gt Add New Scenic' % (city_link, rest_link)
     self.response.write(FOOTER_TEMPLATE.format(pathway))
 
 					
