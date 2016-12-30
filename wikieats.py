@@ -815,7 +815,7 @@ def writeNav(self, active):
 		
 def writeNav3(self, active):
 		self.response.write(HEADER_TEMPLATE3)
-        self.response.write(NAV_1)
+		self.response.write(NAV_1)
 		cities = City.query().order(City.city)
 		for c in cities:
 			#self.response.write('<a href="/browse/%s">%s</a></p>' % (c.key.id(),c.city))
@@ -835,7 +835,8 @@ def writeNav3(self, active):
 		
 		self.response.write('</ul></div>')
 		
-		self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')		
+		self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')	
+		
 def writeNav2(self, active):
 		self.response.write(HEADER_TEMPLATE2)
 		#self.response.write(NAV_1)
