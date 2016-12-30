@@ -448,13 +448,13 @@ HEADER_TEMPLATE3 = """
 	<style type="text/css">
         body 
 		{
-		background-image:url(../styles/login_background.jpg);
+		background-image:url(../styles/Main_background.jpg);
 		background-size:cover;
 		}
     </style>	
         <div class="pathway">
 		</div>	
-		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:1; background-image:url(../style/headpic.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
+		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:1; background-image:url(../styles/Main_background2.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
 			<div style="padding:5px;">
 				<a href="/"><img src="/images/logo.png" width="99px" height="99px"></a>
 			</div>	
