@@ -429,7 +429,7 @@ HEADER_TEMPLATE = """
     </style>	
 		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:0.7; background-image:url(../style/headpic.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
 			<div style="padding:5px;">
-				<a href="/"><img src="/images/logo.png" width="100px" height="99px"></a>
+				<a href="/"><img src="/images/logo.png" width="99px" height="99px"></a>
 			</div>	
 		</div>
 """
