@@ -910,6 +910,7 @@ class BrowseCities(BaseHandler):
 			city = c.city
 			photo_url = images.get_serving_url(p.blob_key, size=None, crop=False, secure_url=None)
 			self.response.write('<li><a href="/browse/%s/%s/%s?landscape=all" style="text-decoration:none;"><div style="font-size:20px; font-family:Arial;"><p style="text-align:center;"><strong>%s (%s)</strong></p><p style="text-align:center;">%s</p></div><img src="%s" class="photo"/></br><div style="display: inline-block; "><div style="float:left; width: 100px; "><img src="/images/%s_star.png" style="display:inline;" height="20px" width="100px"></div></div></a></li>' % (c.key.id(), r.key.id(), d.key.id(), rest_name, city, scenic_name, photo_url, p.rating))
+            writeNav3(self, active)		
 		self.response.write('</ul>')
 
 		self.response.write('</div>')
