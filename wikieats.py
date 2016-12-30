@@ -275,7 +275,7 @@ class ForgotPasswordHandler(BaseHandler):
 		self.response.write('<div class="input_form"><h1>Reset password</h1><p>Forgot your password? Click the link below to receive a link to reset your password.</p>')
 		if not_found:
 			self.response.write('<p style="color:red"><strong>Not found!</strong> We could not find any user with the given username.</p>')
-		self.response.write(FORGOT_TEMPLATE2 % username)
+		self.response.write(FORGOT_TEMPLATE % username)
 		self.response.write('</div>')
 		pathway = '<a href="/browse">MAIN</a> &gt <a href="/">Login</a> &gt Forgot Password'
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
@@ -436,44 +436,29 @@ HEADER_TEMPLATE = """
 HEADER_TEMPLATE3 = """
 <html>
 	<head>
-	    <link type="text/css" rel="stylesheet" href="/styles/main.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/styles/image_grid.css">
+		<link rel="stylesheet" type="text/css" href="/styles/star_rating.css">
+		<link rel="stylesheet" type="text/css" href="/styles/navbar.css">
+		<link rel="stylesheet" type="text/css" href="/styles/login.css">
+		<link rel="stylesheet" type="text/css" href="/styles/list.css">
+        <link rel="stylesheet" type="text/css" href="/styles/advanced.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	</head>
 	<body>
-        <div class="control-area">
- 
-        </div>
-        
-        <div class="login-area">
-            
-                <a class="login-link" href="/login">login</a>
-                |
-                <a class="login-link" href="/signup">sign up</a>
-            
-             
-        </div>
-		
+        <div class="pathway">
+		</div>
+	<style type="text/css">
+        body 
+		{
+		background-image:url(../styles/Main_background.jpg);
+		background-size:cover;
+		}
+    </style>	
 		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:0.7; background-image:url(../style/headpic.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
 			<div style="padding:5px;">
-				<a href="/"><img src="/images/wikieats_logo.png" width="99px" height="99px"></a>
+				<a href="/"><img src="/images/logo.png" width="99px" height="99px"></a>
 			</div>	
 		</div>
-		</div>
-		<div class="footer">
-            <div class="credits">
-                A APPLICATION from <strong>ANQI WANG ZHENGYANG MAO YUANZHOU LI</strong> • v2016.12.31 • Made with Code, Material Design, and Passion.
-            </div>
-            <div class="photocreds">
-                Background Image: Swansea
-            </div>
-        </div>
-        
-    </body>
-
-</html>
 """
 HEADER_TEMPLATE2 = """
 <html>
@@ -888,7 +873,7 @@ class BrowseCities(BaseHandler):
 		result = Photo.query().order(-Photo.created).fetch(8)
 		check = False
 		active = "browse"
-		writeNav(self, active)
+		writeNav3(self, active)
 		self.response.write('<div style="display: inline-block; ">')
 		self.response.write('<p style="padding-left: 40px; font-size: 40px; font-family: \'Bradley Hand ITC\', \'Bradley Hand ITC\', monaco, \'Bradley Hand ITC\', monospace;"><b>Most Recent Uploads:</b></p></div>')
 
@@ -939,7 +924,7 @@ class advancedSearch(BaseHandler):
 class advancedSearchResult(BaseHandler):
   def get(self, result):
     sorted = self.request.get('order')
-    writeNav(self, "browse")
+    writeNav3(self, "browse")
     city = self.request.get('city')
     scenic = self.request.get('scenic')
     price = self.request.get('price')
@@ -1072,7 +1057,7 @@ class BrowseRestaurants(BaseHandler):
 			result = Restaurant.query(ancestor = city_key).order(Restaurant.name)
 		check = False
 		active = "browse"
-		writeNav(self, active)
+		writeNav3(self, active)
 		self.response.write('<div class="liststatus">Showing ' + landscape + " scenic spots in " + city_key.get().city + ':')
 		self.response.write('<form action="/browse/%s" method="GET" class="sortorder"><select name="order" onchange="this.form.submit()">'% (city))
 		
@@ -1129,7 +1114,7 @@ class BrowseScenices(BaseHandler):
 		result = Scenic.query(ancestor = rest_key).order(ordering)
 		check = False
 		active = "browse"
-		writeNav(self, active)
+		writeNav3(self, active)
   
 		self.response.write('<div class="liststatus">Showing senic spots from the ' + rest_key.get().name + ' menu:')
 		self.response.write('<form action="/browse/%s/%s?landscape=%s" method="GET" class="sortorder"><select name="order" onchange="this.form.submit()">'% (city, rest, landscape))
@@ -1203,7 +1188,7 @@ class DisplayScenic(BaseHandler):
 		result = Photo.query(ancestor = photo_key).order(-Photo.created).fetch(10)
 		check = False
 		active = "display"
-		writeNav(self, active)
+		writeNav3(self, active)
 		d = Scenic.get_by_id(photo_key.id(), photo_key.parent())
 		self.response.write('<div style="display: inline-block; ">')
 		self.response.write('<div style="margin: auto; float: left; display: inline-block; width: 600px;"><p style=" padding-left: 40px; font-size: 40px; font-family: \'Lucida Console\', \'Lucida Sans Typewriter\', monaco, \'Bitstream Vera Sans Mono\', monospace;"><b>%s </b>&pound%.2f</p></div>' % (d.name, d.price))
