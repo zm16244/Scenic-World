@@ -463,7 +463,7 @@ HEADER_TEMPLATE2 = """
         </div>
 		<div class="footer">
             <div class="credits">
-                A project from <strong>WANG ANQI </strong> • v2016.17 • Made with Code, Material Design, and.
+                A APPLICATION from <strong>ANQI WANG ZHENGYANG MAO YUANZHOU LI</strong> • v2016.12.31 • Made with Code, Material Design, and Passion.
             </div>
             <div class="photocreds">
                 Background Image: Gavin Hardcastle on flickr
