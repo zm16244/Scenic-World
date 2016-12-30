@@ -429,7 +429,7 @@ HEADER_TEMPLATE = """
     </style>	
 		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:0.7; background-image:url(../style/headpic.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
 			<div style="padding:5px;">
-				<a href="/"><img src="/images/wikieats_logo.png" width="99px" height="99px"></a>
+				<a href="/"><img src="/images/logo.png" width="300px" height="99px"></a>
 			</div>	
 		</div>
 """
@@ -513,7 +513,7 @@ HEADER_TEMPLATE2 = """
         </div>
 		<div class="footer">
             <div class="credits">
-                An APPLICATION from <strong>ANQI WANG ZHENGYANG MAO YUANZHOU LI</strong> • v2016.12.31 • Made with Code, Material Design, and Passion.
+                An Application developped by <strong>ANQI WANG, ZHENGYANG MAO and YUANZHOU LI</strong> • v2016.12.31 • Made with Code, Material Design, and Passion.
             </div>
             <div class="photocreds">
                 Background Image: Swansea
