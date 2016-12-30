@@ -1196,7 +1196,7 @@ class BrowseScenices(BaseHandler):
 		
 		u = self.auth.get_user_by_session()
 		if u:
-			self.response.write('<a  href="/addnewScenic/%s/%s?landscape=%s"><input class="addtolist" value="ADD NEW SCENIC"></a></p>' % (city, rest, landscape))
+			self.response.write('<a  href="/addnewscenic/%s/%s?landscape=%s"><input class="addtolist" value="ADD NEW SCENIC"></a></p>' % (city, rest, landscape))
 		
 		pathway = '<a href="/browse">MAIN</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt %s' % (city, landscape, city_key.get().city, rest_key.get().name)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
