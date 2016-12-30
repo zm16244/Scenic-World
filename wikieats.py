@@ -1079,7 +1079,7 @@ class BrowseRestaurants(BaseHandler):
 			result = Restaurant.query(ancestor = city_key).order(Restaurant.name)
 		check = False
 		active = "browse"
-		writeNav3(self, active)
+		writeNav(self, active)
 		self.response.write('<div class="liststatus">Showing ' + landscape + " scenic spots in " + city_key.get().city + ':')
 		self.response.write('<form action="/browse/%s" method="GET" class="sortorder"><select name="order" onchange="this.form.submit()">'% (city))
 		
