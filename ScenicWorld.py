@@ -230,7 +230,7 @@ class SignupHandler(BaseHandler):
 
 		verification_url = self.uri_for('verification', type='v', user_id=user_id, signup_token=token, _full=True)
 		  
-		message = mail.EmailMessage(sender="ScenicWorld Admin<scenic-world@appspot.gserviceaccount.com>",subject="Account Confirmation Email",to="%s <%s>"% (user.name,user.email_address))
+		message = mail.EmailMessage(sender="scenic-world@appspot.gserviceaccount.com",subject="Account Confirmation Email",to="%s <%s>"% (user.name,user.email_address))
 		message.body = ACCOUNT_CONFIRM % (user.name,verification_url)
 		message.send()
 		
@@ -741,7 +741,7 @@ class getPostcodeDistance(webapp2.RequestHandler):
 	def post(self):
 		post1 = urllib.quote_plus(self.request.get('postcode1'))
 		post2 = urllib.quote_plus(self.request.get('postcode2'))
-		data = json.load(urllib2.urlopen('http://maps.googleapis.com/maps/api/distancematrix/json?origins='+post1+'&destinations='+post2+'&mode=driving&language=en-EN&sensor=false"'))
+		data = json.load(urllib2.urlopen('https://maps.googleapis.com/maps/api/distancematrix/json?origins='+post1+'&destinations='+post2+'&mode=driving&language=en-EN&sensor=false"'))
 		if(data["rows"][0]["elements"][0]["status"] == 'OK'):
 		#self.response.write(data)
 			self.response.write(data["rows"][0]["elements"][0]["distance"]["value"] * 0.001)
@@ -1074,7 +1074,7 @@ class advancedSearchResult(BaseHandler):
           if postcode:
             post1 = urllib.quote_plus(postcode)
             post2 = urllib.quote_plus(restaurant.postcode)
-            data = json.load(urllib2.urlopen('http://maps.googleapis.com/maps/api/distancematrix/json?origins='+post1+'&destinations='+post2+'&mode=driving&language=en-EN&sensor=false"'))
+            data = json.load(urllib2.urlopen('https://maps.googleapis.com/maps/api/distancematrix/json?origins='+post1+'&destinations='+post2+'&mode=driving&language=en-EN&sensor=false"'))
             if data:
               if(data["rows"][0]["elements"][0]["status"] == 'OK'):
                 postDifference = data["rows"][0]["elements"][0]["distance"]["value"] * 0.001
