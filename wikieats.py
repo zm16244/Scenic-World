@@ -460,26 +460,6 @@ HEADER_TEMPLATE3 = """
 			</div>	
 		</div>
 """
-HEADER_TEMPLATE4 = """
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="/styles/image_grid.css">
-		<link rel="stylesheet" type="text/css" href="/styles/star_rating.css">
-		<link rel="stylesheet" type="text/css" href="/styles/navbar.css">
-		<link rel="stylesheet" type="text/css" href="/styles/login.css">
-		<link rel="stylesheet" type="text/css" href="/styles/list.css">
-        <link rel="stylesheet" type="text/css" href="/styles/advanced.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	</head>
-	<body>
-        <div class="pathway">
-		</div>	
-		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:1; background-image:#48aae2; background-repeat: no-repeat; background-size: cover; z-index:100;">
-			<div style="padding:5px;">
-				<a href="/"><img src="/images/logo.png" width="99px" height="99px"></a>
-			</div>	
-		</div>
-"""
 HEADER_TEMPLATE2 = """
 <html>
     <head>
@@ -530,6 +510,26 @@ HEADER_TEMPLATE2 = """
 </html>
 """
 
+HEADER_TEMPLATE4 = """
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/styles/image_grid.css">
+		<link rel="stylesheet" type="text/css" href="/styles/star_rating.css">
+		<link rel="stylesheet" type="text/css" href="/styles/navbar.css">
+		<link rel="stylesheet" type="text/css" href="/styles/login.css">
+		<link rel="stylesheet" type="text/css" href="/styles/list.css">
+        <link rel="stylesheet" type="text/css" href="/styles/advanced.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	<body>
+        <div class="pathway">
+		</div>	
+		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:1; background-image:#48aae2; background-repeat: no-repeat; background-size: cover; z-index:100;">
+			<div style="padding:5px;">
+				<a href="/"><img src="/images/logo.png" width="99px" height="99px"></a>
+			</div>	
+		</div>
+"""
 FOOTER_TEMPLATE = """
 			</div>
 			<div style="position:fixed; left:0px; bottom:0px; height:0px; width:0%; background:#ffffff; z-index:100; ">	
@@ -856,31 +856,7 @@ def writeNav3(self, active):
 		self.response.write('</ul></div>')
 		
 		self.response.write('<div style="position:relative; top:100px; margin-bottom:0px;">')	
-		
-def writeNav2(self, active):
-		self.response.write(HEADER_TEMPLATE2)
-		#self.response.write(NAV_1)
-		#cities = City.query().order(City.city)
-		#for c in cities:
-			#self.response.write('<a href="/browse/%s">%s</a></p>' % (c.key.id(),c.city))
-			#self.response.write('<option value="%s">%s</option>' % (c.key.id(), c.city))
-		#self.response.write(NAV_2)
-		
-		#u = self.auth.get_user_by_session()
-		#if u:
-			#greeting = ('<li class="last"><a href="/logout"><span>Logout</span></a></li>')
-		#elif active == "login":
-			#greeting = ('<li class="active"><a href="/login"><span>Login</span></a></li><li class="last"><a href="/signup"><span>Register</span></a></li>')
-		#elif active == "register":
-			#greeting = ('<li><a href="/login"><span>Login</span></a></li><li class="active last"><a href="/signup"><span>Register</span></a></li>')
-		#else:
-			#greeting = ('<li><a href="/login"><span>Login</span></a></li><li class="last"><a href="/signup"><span>Register</span></a></li>')
-		#self.response.write(greeting)
-		
-		#self.response.write('</ul></div>')
-		
-		#self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')
-		
+
 def writeNav4(self, active):
 		self.response.write(HEADER_TEMPLATE4)
 		self.response.write(NAV_1)
@@ -904,6 +880,29 @@ def writeNav4(self, active):
 		self.response.write('</ul></div>')
 		
 		self.response.write('<div style="position:relative; top:100px; margin-bottom:0px;">')		
+def writeNav2(self, active):
+		self.response.write(HEADER_TEMPLATE2)
+		#self.response.write(NAV_1)
+		#cities = City.query().order(City.city)
+		#for c in cities:
+			#self.response.write('<a href="/browse/%s">%s</a></p>' % (c.key.id(),c.city))
+			#self.response.write('<option value="%s">%s</option>' % (c.key.id(), c.city))
+		#self.response.write(NAV_2)
+		
+		#u = self.auth.get_user_by_session()
+		#if u:
+			#greeting = ('<li class="last"><a href="/logout"><span>Logout</span></a></li>')
+		#elif active == "login":
+			#greeting = ('<li class="active"><a href="/login"><span>Login</span></a></li><li class="last"><a href="/signup"><span>Register</span></a></li>')
+		#elif active == "register":
+			#greeting = ('<li><a href="/login"><span>Login</span></a></li><li class="active last"><a href="/signup"><span>Register</span></a></li>')
+		#else:
+			#greeting = ('<li><a href="/login"><span>Login</span></a></li><li class="last"><a href="/signup"><span>Register</span></a></li>')
+		#self.response.write(greeting)
+		
+		#self.response.write('</ul></div>')
+		
+		#self.response.write('<div style="position:relative; top:175px; margin-bottom:80px;">')
 		
 ##############################
 ########## BROWSING ##########
@@ -1180,7 +1179,7 @@ class BrowseScenices(BaseHandler):
 		result = Scenic.query(ancestor = rest_key).order(ordering)
 		check = False
 		active = "browse"
-		writeNav4(self, active)
+		writeNav(self, active)
   
 		self.response.write('<div class="liststatus">Showing senic spots from the ' + rest_key.get().name + ' menu:')
 		self.response.write('<form action="/browse/%s/%s?landscape=%s" method="GET" class="sortorder"><select name="order" onchange="this.form.submit()">'% (city, rest, landscape))
@@ -1254,7 +1253,7 @@ class DisplayScenic(BaseHandler):
 		result = Photo.query(ancestor = photo_key).order(-Photo.created).fetch(10)
 		check = False
 		active = "display"
-		writeNav4(self, active)
+		writeNav3(self, active)
 		d = Scenic.get_by_id(photo_key.id(), photo_key.parent())
 		self.response.write('<div style="display: inline-block; ">')
 		self.response.write('<div style="margin: auto; float: left; display: inline-block; width: 600px;"><p style=" padding-left: 40px; font-size: 40px; font-family: \'Lucida Console\', \'Lucida Sans Typewriter\', monaco, \'Bitstream Vera Sans Mono\', monospace;"><b>%s </b>&pound%.2f</p></div>' % (d.name, d.price))
