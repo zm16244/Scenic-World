@@ -1,12 +1,4 @@
 # -*- coding: utf-8 -*-
-####THINGS TO DO#####
-
-#. change it so we don't have duplicate functions
-#. stop double submit when you upload a photo
-#. Add sort filter to restaurant and scenic pages
-#. parse any entered text to protect against XSS
-
-
 import cgi
 import urllib
 import json
@@ -32,10 +24,6 @@ from webapp2_extras.auth import InvalidAuthIdError
 from webapp2_extras.auth import InvalidPasswordError
 # coding: utf-8
 
-###################################
-####### USER AUTHENTICATION #######
-###################################
-
 PASSWORD_RESET_EMAIL = """
 Dear %s,
 Your password can be reset by clicking the following link:
@@ -43,7 +31,7 @@ Your password can be reset by clicking the following link:
 %s
 
 Thanks,
-The WikiEats Team
+ScenicWorld
 """
 
 ACCOUNT_CONFIRM = """
@@ -53,7 +41,7 @@ Please confirm your account by clicking the following link:
 %s
 
 Thanks,
-The WikiEats Team
+ScenicWorld
 """
 
 SIGNUP_TEMPLATE = """
@@ -179,16 +167,16 @@ class BaseHandler(webapp2.RequestHandler):
     """Utility function to display a template with a simple message."""
     self.response.write(message)
 
-  # this is needed for webapp2 sessions to work
+
   def dispatch(self):
-      # Get a session store for this request.
+
       self.session_store = sessions.get_store(request=self.request)
 
       try:
-          # Dispatch the request.
+
           webapp2.RequestHandler.dispatch(self)
       finally:
-          # Save all sessions.
+
           self.session_store.save_sessions(self.response)
 
 class MainHandler(BaseHandler):
@@ -219,7 +207,7 @@ class SignupHandler(BaseHandler):
 			unique_properties,
 			email_address=email, name=user_name, password_raw=password,
 			verified=False)
-		if not user_data[0]: #user_data is a tuple
+		if not user_data[0]: 
 			self.display_message('Unable to create user for user %s because of duplicate keys %s' % (user_name, user_data[1]))
 			return
 		
@@ -626,7 +614,7 @@ NAV_2 = """
 			</span>
 			<span class="dropdown">
 			<select name="rest_type" id="rest_type"> <option value="all">All landscapes</option>
-				<option value="Human">Human</option>
+				<option value="Cultural">Cultural</option>
 				<option value="Natural">Natural</option>
 			</select>
 			</span>
@@ -658,7 +646,7 @@ ADD_NEW_RESTAURANT_TEMPLATE = """
 			<form action="/postrestaurant2/%s?landscape=%s" method="POST">
 				<input type="text" name="rest_name" placeholder="The Name of Scenic Spots" required/>
 				<select name="rest_type">
-					<option value="Human">Human</option>
+					<option value="Cultural">Cultural</option>
 					<option value="Natural">Natural</option>
 				</select>
 				<input type="text" name="rest_postcode" placeholder="Postcode"/>
