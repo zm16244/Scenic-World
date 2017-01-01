@@ -474,7 +474,7 @@ HEADER_TEMPLATE4 = """
 	<body>
         <div class="pathway">
 		</div>	
-		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:1; background-image:#48aae2; background-repeat: no-repeat; background-size: cover; z-index:100;">
+		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:1; background:#48aae2; background-repeat: no-repeat; background-size: cover; z-index:100;">
 			<div style="padding:5px;">
 				<a href="/"><img src="/images/logo.png" width="99px" height="99px"></a>
 			</div>	
@@ -1353,7 +1353,7 @@ class AddNewScenic(BaseHandler, ):
     rest_key = ndb.Key('City', int(city), 'Restaurant', int(rest))
     city_key = ndb.Key('City', int(city))
     active = "scenic"
-    writeNav(self, active)
+    writeNav4(self, active)
     error = "<p></p>"
     if invalid_price:
       error = "<p style='color:red;'>Please enter a valid price (eg 10.00) </p>"
@@ -1376,7 +1376,7 @@ class uploadPhotoPage(BaseHandler):
 		city_key = ndb.Key('City', int(city))
 		upload_url = blobstore.create_upload_url('/upload/%s/%s/%s?landscape=%s' % (city, rest, scenic, landscape))
 		active = "upload"
-		writeNav(self, active)
+		writeNav4(self, active)
 		self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
 		self.response.out.write("""
 				<div class="input_form">
