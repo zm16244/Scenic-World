@@ -415,7 +415,7 @@ HEADER_TEMPLATE = """
 		<link rel="stylesheet" type="text/css" href="/styles/login.css">
 		<link rel="stylesheet" type="text/css" href="/styles/list.css">
         <link rel="stylesheet" type="text/css" href="/styles/advanced.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</head>
 	<body>
         <div class="pathway">
@@ -442,7 +442,7 @@ HEADER_TEMPLATE3 = """
 		<link rel="stylesheet" type="text/css" href="/styles/login.css">
 		<link rel="stylesheet" type="text/css" href="/styles/list.css">
         <link rel="stylesheet" type="text/css" href="/styles/advanced.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</head>
 	<body>
 	<style type="text/css">
@@ -469,7 +469,7 @@ HEADER_TEMPLATE4 = """
 		<link rel="stylesheet" type="text/css" href="/styles/login.css">
 		<link rel="stylesheet" type="text/css" href="/styles/list.css">
         <link rel="stylesheet" type="text/css" href="/styles/advanced.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</head>
 	<body>
         <div class="pathway">
