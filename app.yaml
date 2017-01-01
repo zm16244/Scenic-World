@@ -18,19 +18,19 @@ handlers:
   static_dir: scripts
   
 - url: /signup
-  script: wikieats.application
+  script: ScenicWorld.application
   secure: always
   
 - url: /login
-  script: wikieats.application
+  script: ScenicWorld.application
   secure: always
   
 - url: /forgot
-  script: wikieats.application
+  script: ScenicWorld.application
   secure: always
 
 - url: /.*
-  script: wikieats.application
+  script: ScenicWorld.application
 
 libraries:
 - name: webapp2

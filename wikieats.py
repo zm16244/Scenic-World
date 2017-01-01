@@ -230,7 +230,7 @@ class SignupHandler(BaseHandler):
 
 		verification_url = self.uri_for('verification', type='v', user_id=user_id, signup_token=token, _full=True)
 		  
-		message = mail.EmailMessage(sender="WikiEats Admin<wiki-eats@appspot.gserviceaccount.com>",subject="Account Confirmation Email",to="%s <%s>"% (user.name,user.email_address))
+		message = mail.EmailMessage(sender="ScenicWorld Admin<scenic-world@appspot.gserviceaccount.com>",subject="Account Confirmation Email",to="%s <%s>"% (user.name,user.email_address))
 		message.body = ACCOUNT_CONFIRM % (user.name,verification_url)
 		message.send()
 		
@@ -427,7 +427,7 @@ HEADER_TEMPLATE = """
 		background-size:cover;
 		}
     </style>	
-		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:0.7; background-image:url(../style/headpic.jpg); background-repeat: no-repeat; background-size: cover; z-index:100;">
+		<div style="position:fixed; left:0px; top:0px; height:110px; width:100%; opacity:0.7; background-repeat: no-repeat; background-size: cover; z-index:100;">
 			<div style="padding:5px;">
 				<a href="/"><img src="/images/logo.png" width="99px" height="99px"></a>
 			</div>	

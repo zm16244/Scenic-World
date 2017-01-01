@@ -109,11 +109,13 @@
 }
 
 #cssmenu form input[type="submit"]{
+	font-family: 'Times New Roman', sans-serif;
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
-	width: 50px;
-	height:30px;
+	width: 40px;
+	height:28px;
+	opacity:0.7;
 	cursor: pointer;
 	color: black;
 	border: 0px;
@@ -121,19 +123,20 @@
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	font-size: 17px;
+	font-size: 15px;
 	transition: all 0.3s ease;
 }
 
 #cssmenu form a{
 	position: relative;
 	text-decoration:none;
-	font-family:Arial;
+	opacity:0.7;
+	font-family:Times New Roman;
 	text-align:center;
 	display: inline-block;
 	vertical-align: middle;
-	width: 180px;
-	height:30px;
+	width: 160px;
+	height:28px;
 	cursor: pointer;
 	color: black;
 	border: 0px;
@@ -141,7 +144,7 @@
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	font-size: 17px;
+	font-size: 15px;
 	transition: all 0.3s ease;
 	background-color: lightgray;
 	margin-left:20px;
