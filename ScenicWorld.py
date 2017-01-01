@@ -673,10 +673,10 @@ ADD_NEW_RESTAURANT_TEMPLATE = """
 
 ADD_NEW_SCENIC_TEMPLATE = """
 		<div class="input_form">
-			<h1>Add Scenic</h1>
+			<h1>Add Attractions</h1>
 			{3}
 			<form action="/addnewscenic/{0}/{1}?landscape={2}" method="POST">
-				<input type="text" name="scenic_name" placeholder="Name of Scenic" required/>
+				<input type="text" name="scenic_name" placeholder="Name of Attractions" required/>
 				<input type="text" name="scenic_price" placeholder="Price (&pound)"/>
 				<input type="submit" value="Submit" />
 			</form>
@@ -1182,7 +1182,7 @@ class BrowseScenices(BaseHandler):
 		active = "browse"
 		writeNav4(self, active)
   
-		self.response.write('<div class="liststatus">Showing senic spots from the ' + rest_key.get().name+':')
+		self.response.write('<div class="liststatus">Showing attractions from the ' + rest_key.get().name+':')
 		self.response.write('<form action="/browse/%s/%s?landscape=%s" method="GET" class="sortorder"><select name="order" onchange="this.form.submit()">'% (city, rest, landscape))
 		
 		self.response.write('<option value="abc"')
@@ -1234,13 +1234,13 @@ class BrowseScenices(BaseHandler):
 				
 			self.response.write('</div></div></a>')
 		if check == False:
-			self.response.write('<p class="noitems">No Scenic in this scenic spots.</p>')
+			self.response.write('<p class="noitems">No attractions in this scenic spots.</p>')
 		
 		self.response.write('</div>')
 		
 		u = self.auth.get_user_by_session()
 		if u:
-			self.response.write('<a  href="/addnewscenic/%s/%s?landscape=%s"><input class="addtolist" value="ADD NEW SCENIC"></a></p>' % (city, rest, landscape))
+			self.response.write('<a  href="/addnewscenic/%s/%s?landscape=%s"><input class="addtolist" value="ADD NEW ATTRACTIONS"></a></p>' % (city, rest, landscape))
 		
 		pathway = '<a href="/browse">MAIN</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt %s' % (city, landscape, city_key.get().city, rest_key.get().name)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
