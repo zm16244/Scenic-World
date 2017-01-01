@@ -318,7 +318,7 @@ class VerificationHandler(BaseHandler):
       
       active = "emailverified"
       writeNav(self, active)
-      self.response.write('<div style="margin-top:50px; font-family: Arial; font-size: 30px; text-align:center;"><p>Your email address has been verified.</p></div>')
+      self.response.write('<div style="margin-top:50px; color:#ffffff; font-family: Arial; font-size: 30px; text-align:center;"><p>Your email address has been verified.</p></div>')
       self.response.write(FOOTER_TEMPLATE.format(""))
       return
     elif verification_type == 'p':
@@ -1293,7 +1293,7 @@ class AddNewRestaurant(BaseHandler):
 		active = "restaurant"
 		writeNav(self, active)
 		self.response.out.write(ADD_NEW_RESTAURANT_TEMPLATE % (city, landscape))
-		pathway = '<a href="/browse">MAIN</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt Add New Restaurant' % (city, landscape, city_key.get().city)
+		pathway = '<a href="/browse">MAIN</a> &gt <a href="/browse/%s?landscape=%s">%s</a> &gt Add New Secnic Spots' % (city, landscape, city_key.get().city)
 		self.response.write(FOOTER_TEMPLATE.format(pathway))
 		
 class PostRestaurant2(webapp2.RequestHandler):
