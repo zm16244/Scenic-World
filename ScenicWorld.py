@@ -230,7 +230,7 @@ class SignupHandler(BaseHandler):
 
 		verification_url = self.uri_for('verification', type='v', user_id=user_id, signup_token=token, _full=True)
 		  
-		message = mail.EmailMessage(sender="scenic-world@appspot.gserviceaccount.com",subject="Account Confirmation Email",to="%s <%s>"% (user.name,user.email_address))
+		message = mail.EmailMessage(sender="Scenic-World Admin<scenic-world@appspot.gserviceaccount.com>",subject="Account Confirmation Email",to="%s <%s>"% (user.name,user.email_address))
 		message.body = ACCOUNT_CONFIRM % (user.name,verification_url)
 		message.send()
 		
