@@ -1182,7 +1182,7 @@ class BrowseScenices(BaseHandler):
 		active = "browse"
 		writeNav4(self, active)
   
-		self.response.write('<div class="liststatus">Showing senic spots from the ' + rest_key.get().name')
+		self.response.write('<div class="liststatus">Showing senic spots from the ' + rest_key.get().name+':')
 		self.response.write('<form action="/browse/%s/%s?landscape=%s" method="GET" class="sortorder"><select name="order" onchange="this.form.submit()">'% (city, rest, landscape))
 		
 		self.response.write('<option value="abc"')
