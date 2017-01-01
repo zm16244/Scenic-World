@@ -561,7 +561,7 @@ ADVANCED_TEMPLATE_1 = """
 
 ADVANCED_TEMPLATE_2 = """
         </select>
-        <input type="text" name="scenic_name" placeholder="Name of scenic" class="required" required/>  
+        <input type="text" name="scenic_name" placeholder="Name of Attractions" class="required" required/>  
         <select name="price_select" id="price_select"> 
           <option value="anyPrice">Any Price</option>
           <option value="lessThan">Less Than</option>
